@@ -1,5 +1,9 @@
 name: dockerhub-CI-CD
 
+on:
+ push:
+   branches: 
+     - master
 
 
 jobs:
