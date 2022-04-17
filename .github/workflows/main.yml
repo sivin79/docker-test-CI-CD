@@ -1,4 +1,4 @@
-name: "dockerhub-CI-CD"
+name: dockerhub-CI-CD
 
 on:
   push:
