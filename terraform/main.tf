@@ -9,14 +9,14 @@ terraform {
 }
 
 
-terraform {
+# terraform {
 
-  backend "s3" {
-    bucket = "test-bucket-for-lessons"                    // Bucket where to SAVE Terraform State
-    key    = "New-lesson-CI-CD/tfstate/terraform.tfstate" // Object name in the bucket to SAVE Terraform State
-    region = "eu-west-1"                                  // Region where bycket created
-  }
-}
+#   backend "s3" {
+#     bucket = "test-bucket-for-lessons"                    // Bucket where to SAVE Terraform State
+#     key    = "New-lesson-CI-CD/tfstate/terraform.tfstate" // Object name in the bucket to SAVE Terraform State
+#     region = "eu-west-1"                                  // Region where bycket created
+#   }
+# }
 
 
 # Create VPC
