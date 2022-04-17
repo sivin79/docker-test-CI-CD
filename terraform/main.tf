@@ -9,14 +9,14 @@ terraform {
 }
 
 
-terraform {
+# terraform {
 
-  backend "s3" {
-    bucket = "test-bucket-for-lessons"                    // Bucket where to SAVE Terraform State
-    key    = "NEW-Docker-CI-CD/tfstate/terraform.tfstate" // Object name in the bucket to SAVE Terraform State
-    region = "eu-west-1"                                  // Region  where bycket created
-  }
-}
+#   backend "s3" {
+#     bucket = "test-bucket-for-lessons"                    // Bucket where to SAVE Terraform State
+#     key    = "NEW-Docker-CI-CD/tfstate/terraform.tfstate" // Object name in the bucket to SAVE Terraform State
+#     region = "eu-west-1"                                  // Region  where bycket created
+#   }
+# }
 
 data "aws_availability_zones" "available" {
   state = "available"
