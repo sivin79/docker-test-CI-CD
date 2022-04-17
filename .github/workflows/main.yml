@@ -7,15 +7,18 @@ on:
 
 
 jobs:
-  my-testing:
+  my-testing-docker:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Hello message
-        run: echo "Hello, world!"
+      - name: "Checkout"
+        uses: actions/checkout@main
 
-      - name: Show folders
-        run: ls -l
+      - name: "docker login"
+        run: docker login -u sivin79 -p ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Show terraform version
-        run: terraform --version
+      - name: "Build"
+        run: docker build -t sivin79/hello-world:1.0.1 -t sivin79/hello-world:1.1.1 .
+
+      - name: "Push"
+        run: docker push sivin79/hello-world:1.1.1
