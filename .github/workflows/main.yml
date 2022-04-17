@@ -8,6 +8,8 @@ jobs:
   DOS:
     name: running job
     runs-on: ubuntu-latest
+    env:
+      WORKING_DIRECTORY: docker-test-CI-CD
 
     steps:
       - name: "Checkout"
