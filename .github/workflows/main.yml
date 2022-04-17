@@ -1,9 +1,6 @@
 name: dockerhub-CI-CD
 
-on:
-  push:
-    branches:
-      - main
+
 
 jobs:
   my-testing:
