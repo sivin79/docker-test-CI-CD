@@ -9,14 +9,17 @@ terraform {
 }
 
 
+provider "aws" {
+  region = "eu-west-1"
+}
 
 
 terraform {
 
   backend "s3" {
-    bucket = "test-bucket-for-lessons"                       // Bucket where to SAVE Terraform State
-    key    = "lesson-Docker-CI-CD/tfstate/terraform.tfstate" // Object name in the bucket to SAVE Terraform State
-    region = "eu-west-1"                                     // Region where bycket created
+    bucket = "test-bucket-for-lessons"                     // Bucket where to SAVE Terraform State
+    key    = "test-Docker-CI-CD/tfstate/terraform.tfstate" // Object name in the bucket to SAVE Terraform State
+    region = "eu-west-1"                                   // Region where bycket created
   }
 }
 
@@ -27,4 +30,22 @@ data "aws_availability_zones" "available" {
 
 output "aws_availability_zones_availabale" {
   value = data.aws_availability_zones.available.names[*]
+}
+
+
+data "terraform_remote_state" "network" {
+  backend = "s3"
+  config = {
+    bucket = "test-bucket-for-lessons"                // Bucket from where to GET Terraform State
+    key    = "lesson-CI-CD/tfstate/terraform.tfstate" // Object name in the bucket to GET Terraform state
+    region = "eu-west-1"                              // Region where bycket created
+  }
+}
+
+output "remote_state_my_vpc_id" {
+  value = data.terraform_remote_state.network.outputs.my_vpc_id
+}
+
+output "remote_state_my_sg_id" {
+  value = data.terraform_remote_state.network.outputs.my_sg_id
 }
