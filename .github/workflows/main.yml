@@ -1,5 +1,10 @@
 name: "dockerhub-CI-CD"
 
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   my-testing:
     runs-on: ubuntu-latest
@@ -24,10 +29,6 @@ jobs:
     steps:
       - name: Print Deploy
         run: echo "Hello, world from DEploy!"
-# on:
-#   push:
-#     branches:
-#       - main
 # jobs:
 #   my-testing-docker:
 #     runs-on: ubuntu-latest
