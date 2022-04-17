@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - dev
+    paths:
+      - terraform/**
 
 env:
   AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY_ID}}
@@ -31,6 +33,8 @@ jobs:
     name: running terraform apply
     runs-on: ubuntu-latest
     needs: [my-docker]
+    env:
+      WORKING_DIRECTORY: terraform
 
     steps:
       - name: Print Deploy
