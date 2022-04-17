@@ -13,7 +13,6 @@ provider "aws" {
   region = "eu-west-1"
 }
 
-
 # terraform {
 
 #   backend "s3" {
@@ -47,3 +46,5 @@ output "remote_state_my_vpc_id" {
 output "remote_state_my_sg_id" {
   value = data.terraform_remote_state.network.outputs.my_sg_id
 }
+
+//add comment
