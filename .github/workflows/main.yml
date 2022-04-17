@@ -1,10 +1,9 @@
-name: dockerhub-CI-CD
+name: "dockerhub-CI-CD"
 
 on:
- push:
-   branches: 
-     - master
-
+  push:
+    branches:
+      - main
 
 jobs:
   my-testing-docker:
