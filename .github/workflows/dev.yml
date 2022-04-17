@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@main
+        uses: actions/checkout@dev
 
       - name: "docker login"
         run: docker login -u sivin79 -p ${{secrets.DOCKERHUB_PASSWORD}}
@@ -39,7 +39,7 @@ jobs:
         run: echo "Hello, world from Deploy state!"
 
       - name: "Checkout"
-        uses: actions/checkout@master
+        uses: actions/checkout@dev
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
