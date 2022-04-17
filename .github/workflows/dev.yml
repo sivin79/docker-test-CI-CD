@@ -33,6 +33,8 @@ jobs:
     name: running terraform apply
     runs-on: ubuntu-latest
     needs: [my-docker]
+    env:
+      WORKING_DIRECTORY: terraform
 
     steps:
       - name: Print Deploy
