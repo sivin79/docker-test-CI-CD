@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [my-docker]
     env:
-      WORKING_DIRECTORY: terraform1
+      WORKING_DIRECTORY: terraform
 
     steps:
       - name: Print Deploy

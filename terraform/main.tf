@@ -23,7 +23,7 @@ data "aws_availability_zones" "available" {
 }
 
 output "aws_availability_zones_availabale" {
-  value = data.aws_availability_zones.available.names[0]
+  value = data.aws_availability_zones.available.names[*]
 }
 
 data "terraform_remote_state" "network" {
