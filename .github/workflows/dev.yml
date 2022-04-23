@@ -38,7 +38,7 @@ jobs:
       - name: Print Deploy
         run: echo "Hello, world from Deploy state!"
 
-      - name: "Checkout"
+      - name: Checkout
         uses: actions/checkout@main
 
       - name: Configure AWS Credentials
