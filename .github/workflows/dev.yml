@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - dev
-    paths:
-      - terraform/**
 
 env:
   AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY_ID}}
@@ -20,7 +18,7 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@main
 
-      - name: "docker login"
+      - name: "Docker login"
         run: docker login -u sivin79 -p ${{secrets.DOCKERHUB_PASSWORD}}
 
       - name: "Build"
@@ -37,13 +35,13 @@ jobs:
       WORKING_DIRECTORY: terraform
 
     steps:
-      - name: Print Deploy
+      - name: "Print deploy"
         run: echo "Hello, world from Deploy state!"
 
-      - name: "Checkout"
+      - name: Checkout
         uses: actions/checkout@main
 
-      - name: Configure AWS Credentials
+      - name: "Configure AWS Credentials"
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{env.AWS_ACCESS_KEY}}
