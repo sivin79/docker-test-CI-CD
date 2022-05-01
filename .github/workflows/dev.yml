@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: "Print GITHUB_REF"
-        run: echo ${GITHUB_REF:11}
+        run: echo ${GITHUB_REF}
 
       - name: "Docker login"
         run: docker login -u sivin79 -p ${{secrets.DOCKERHUB_PASSWORD}}
