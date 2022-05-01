@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: "Print deploy"
-        run: echo "Hello, world from Deploy state!"
+        run: echo "Hello, world from Deploy state!!!"
 
       - name: Checkout
         uses: actions/checkout@main
