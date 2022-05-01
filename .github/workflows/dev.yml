@@ -3,9 +3,10 @@ name: "dev-dockerhub-CI-CD"
 on:
   push:
     tags:
-      - '!refs/tags/*'
+      - "!refs/tags/*"
     branches:
-      - '*'
+      - "*"
+
 
 env:
   AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY_ID}}
@@ -24,10 +25,10 @@ jobs:
         run: docker login -u sivin79 -p ${{secrets.DOCKERHUB_PASSWORD}}
 
       - name: "Build"
-        run: docker build -t sivin79/hello_world:${{env.HASH}} -t sivin79/hello_world:${{env.HASH}} .
+        run: docker build -t sivin79/hello_world:${GITHUB_REF:11} -f Dockerfile .
 
       - name: "Push"
-        run: docker push sivin79/hello_world:${{env.HASH}}
+        run: docker push sivin79/hello_world:${GITHUB_REF:11}
 
   my-deploy:
     name: running terraform apply
@@ -38,7 +39,7 @@ jobs:
 
     steps:
       - name: "Print deploy"
-        run: echo "Hello, world from Deploy state!"
+        run: echo "Hello, world from Deploy state!!!"
 
       - name: Checkout
         uses: actions/checkout@main
