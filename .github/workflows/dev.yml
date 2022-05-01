@@ -20,6 +20,13 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@main
 
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF:11}
+
+      - name: Check output
+        run: echo ${{ steps.vars.outputs.tag }}
+
       - name: "Print GITHUB_REF"
         run: echo ${GITHUB_REF}
 
