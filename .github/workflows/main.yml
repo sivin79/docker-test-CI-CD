@@ -22,5 +22,5 @@ jobs:
       - name: "Build"
         run: docker build -t sivin79/hello_world:${GITHUB_REF:11} -f Dockerfile .
 
-      - name: "Push"
+      - name: "Push to registry"
         run: docker push sivin79/hello_world:${GITHUB_REF:11}
