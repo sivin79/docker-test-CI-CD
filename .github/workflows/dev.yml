@@ -40,7 +40,7 @@ jobs:
       WORKING_DIRECTORY: terraform
 
     steps:
-      - name: "Print deploy"
+      - name: "Print Deploy"
         run: echo "Hello, world from Deploy state!!!"
 
       - name: "Checkout"
