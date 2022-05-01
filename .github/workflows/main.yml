@@ -1,9 +1,9 @@
 name: "dockerhub-CI-CD"
 
 on:
-  push:
-    branches:
-      - master
+  release:
+    types: [published]
+  # Запуск только при публиковании нового релиза
 
 env:
   TAG: "latest"
