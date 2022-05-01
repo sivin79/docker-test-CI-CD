@@ -16,7 +16,7 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@main
 
-      - name: "docker login"
+      - name: "Docker login"
         run: docker login -u sivin79 -p ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: "Build"
