@@ -2,8 +2,10 @@ name: "dev-dockerhub-CI-CD"
 
 on:
   push:
+    tags:
+      - '!refs/tags/*'
     branches:
-      - dev
+      - '*'
 
 env:
   AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY_ID}}
